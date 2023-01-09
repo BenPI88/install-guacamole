@@ -20,7 +20,7 @@ sudo apt install libssl-dev -y
 sudo apt install libvorbis-dev -y
 sudo apt install libwebp-dev -y
 #Pull Latest Guacamole Server
-git clone git://github.com/apache/guacamole-server.git
+git clone https://github.com/apache/guacamole-server
 cd guacamole-server
 #Compile Latest Guacamole Server
 autoreconf -fi
