@@ -13,7 +13,7 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 #install guacamole
 docker run --name some-guacd -d guacamole/guacd
 docker run -e GUACD_LOG_LEVEL=debug -d guacamole/guacd
