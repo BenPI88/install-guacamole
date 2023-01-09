@@ -1,3 +1,25 @@
+#EVERYTHING I HAD TO MANUALLY DO (THANKS APACHE)
+sudo apt install make
+sudo apt update
+sudo apt install default–jdk
+sudo groupadd tomcat
+sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
+cd /tmp
+cucurl -O https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.63/bin/apache-tomcat-9.0.63.tar.gz
+sudo mkdir /opt/tomcat
+cd /opt/tomcat
+sudo tar xzvf /tmp/apache-tomcat-9.0.*tar.gz -C /opt/tomcat --strip-components=1
+sudo chgrp -R tomcat /opt/tomcat
+sudo chmod -R g+r conf
+sudo chmod g+x conf
+sudo chown -R tomcat webapps/ work/ temp/ logs/
+sudo cp tomcatconfig.service /etc/systemd/system/tomcat.service
+sudo systemctl daemon-reload
+cd /opt/tomcat/bin
+sudo ./startup.sh run
+sudo ufw allow 8080
+sudo cp tomcatuserconfig.xml /opt/tomcat/conf/tomcat-users.xml
+sudo systemctl restart tomcat
 #required packages
 sudo apt install libcairo2-dev -y
 sudo apt install libjpeg-turbo8-dev -y
